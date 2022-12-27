@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea id="text_area"></textarea>
+    <button id="first_button">Ввод</button>
+    <button id="second_button">Вывод</button>
+
+    <script>
+        let text_area = document.getElementById("text_area");
+        let first_button = document.getElementById("first_button");
+        let second_button = document.getElementById("second_button");
+
+        let arr=[];
+
+        first_button.onclick = function() {
+            arr.push(+text_area.value);
+            console.log(arr);
+        }
+
+
+
+        second_button.onclick = function(){
+            let min = Math.min(...arr);
+            let max = Math.max(...arr);
+            console.log("Отсортированный массив: " + bubbleSort(arr));
+            console.log("Самое наименьшее число = " + min + " Самое наибольшее число = " + max);
+        }
+
+        function bubbleSort(arr){
+    
+            for(var i = 0; i < arr.length; i++){
+                for(var j = 0; j < ( arr.length - i -1 ); j++){
+         
+                    if(arr[j] > arr[j+1]){
+           
+                         var temp = arr[j]
+                         arr[j] = arr[j + 1]
+                         arr[j+1] = temp
+                        console.log(arr);
+                    }
+                }
+            }
+            return arr;
+        }
+
+    </script>
+</body>
+</html>
